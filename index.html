@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina Media</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f0fa;
+      color: #333;
+    }
+
+    header {
+      background-color: #6a0dad; /* Brand purple */
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #4b0082;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0.5rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #6a0dad;
+    }
+
+    footer {
+      background-color: #4b0082;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #6a0dad;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 600px;
+      margin-top: 1rem;
+    }
+
+    input, textarea, select, button {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #6a0dad;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #5a009c;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      section {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Lumina Media</h1>
+    <p>Illuminate Your Brand. Dominate the Media Space.</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#coaching">Coaching</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home">
+    <h2>Welcome to Lumina Media</h2>
+    <p>We help brands like yours transform inconsistent online presence into magnetic content, loyal communities, and media that sells. Whether you're a business ready to outsource or an aspiring media professional seeking clarity—we have a solution tailored for you.</p>
+    <a href="#services" class="cta-button">Explore Our Services</a>
+    <a href="#coaching" class="cta-button">Join Our Coaching</a>
+  </section>
+
+  <section id="about">
+    <h2>About Lumina Media</h2>
+    <p>Lumina Media was founded by Chukwuma Miracle also known as The Global Mira, a certified social media expert turned visionary entrepreneur. We are a hybrid agency and coaching platform offering brand transformation services and media education for aspiring professionals.</p>
+  </section>
+
+  $1
+
+  <button onclick="payForStarter()" class="cta-button">Pay ₦150,000 (Starter)</button>
+  <button onclick="payForGrowth()" class="cta-button">Pay ₦250,000 (Growth)</button>
+  <button onclick="payForPremium()" class="cta-button">Pay ₦400,000+ (Premium)</button>
+</section>
+
+  <section id="coaching">
+    <h2>Clarity Coaching Program</h2>
+    <p>Learn to become an in-demand social media manager. A 4-week live program teaching content creation, strategy, client systems, pricing, and more.</p>
+    <p>Includes: lessons, live calls, templates, certificate, and private group support.</p>
+    <p><strong>Program Fee:</strong> ₦25,000 early bird | ₦30,000 standard</p>
+    <a href="#contact" class="cta-button">Join the Waitlist</a>
+  <button onclick="payWithPaystackStandard()" class="cta-button">Pay ₦30,000 (Standard)</button>
+<button onclick="payWithPaystackEarlyBird()" class="cta-button">Pay ₦25,000 (Early Bird)</button>
+
+<script src="https://js.paystack.co/v1/inline.js">  function payForStarter() {
+    var handler = PaystackPop.setup({
+      key: 'pk_test_6141b85a9f91c3f1a04c5c65127d04c262500b58',
+      email: 'miraclec613@gmail.com',
+      amount: 15000000,
+      currency: 'NGN',
+      ref: '' + Math.floor((Math.random() * 1000000000) + 1),
+      callback: function(response) {
+        alert('Starter Package Payment successful. Transaction reference: ' + response.reference);
+      },
+      onClose: function() {
+        alert('Payment window closed.');
+      }
+    });
+    handler.openIframe();
+  }
+
+  function payForGrowth() {
+    var handler = PaystackPop.setup({
+      key: 'pk_test_6141b85a9f91c3f1a04c5c65127d04c262500b58',
+      email: 'miraclec613@gmail.com',
+      amount: 25000000,
+      currency: 'NGN',
+      ref: '' + Math.floor((Math.random() * 1000000000) + 1),
+      callback: function(response) {
+        alert('Growth Package Payment successful. Transaction reference: ' + response.reference);
+      },
+      onClose: function() {
+        alert('Payment window closed.');
+      }
+    });
+    handler.openIframe();
+  }
+
+  function payForPremium() {
+    var handler = PaystackPop.setup({
+      key: 'pk_test_6141b85a9f91c3f1a04c5c65127d04c262500b58',
+      email: 'miraclec613@gmail.com',
+      amount: 40000000,
+      currency: 'NGN',
+      ref: '' + Math.floor((Math.random() * 1000000000) + 1),
+      callback: function(response) {
+        alert('Premium Package Payment successful. Transaction reference: ' + response.reference);
+      },
+      onClose: function() {
+        alert('Payment window closed.');
+      }
+    });
+    handler.openIframe();
+  }
+
+$1
+<script>
+  function payWithPaystackStandard() {
+    var handler = PaystackPop.setup({
+      key: 'pk_test_6141b85a9f91c3f1a04c5c65127d04c262500b58',
+      email: 'miraclec613@gmail.com',
+      amount: 3000000, // ₦30,000
+      currency: 'NGN',
+      ref: '' + Math.floor((Math.random() * 1000000000) + 1),
+      callback: function(response) {
+        alert('Standard Payment successful. Transaction reference: ' + response.reference);
+      },
+      onClose: function() {
+        alert('Payment window closed.');
+      }
+    });
+    handler.openIframe();
+  }
+
+  function payWithPaystackEarlyBird() {
+    var handler = PaystackPop.setup({
+      key: 'pk_test_6141b85a9f91c3f1a04c5c65127d04c262500b58',
+      email: 'miraclec613@gmail.com',
+      amount: 2500000, // ₦25,000
+      currency: 'NGN',
+      ref: '' + Math.floor((Math.random() * 1000000000) + 1),
+      callback: function(response) {
+        alert('Early Bird Payment successful. Transaction reference: ' + response.reference);
+      },
+      onClose: function() {
+        alert('Payment window closed.');
+      }
+    });
+    handler.openIframe();
+  }
+</script>
+
+</section>
+<section id="contact">
+    <h2>Work With Us</h2>
+    <p>Ready to transform your brand or career? Let’s talk. Fill the form below or book a call.</p>
+
+    <form action="https://formspree.io/f/xovwnzne" method="POST" onsubmit="window.location.href='https://calendly.com/luminamedia-booking'; return false;">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="service">What are you interested in?</label>
+      <select id="service" name="service">
+        <option value="media">Media Services</option>
+        <option value="coaching">Coaching Program</option>
+        <option value="both">Both</option>
+      </select>
+
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <p>Email: miraclec613@gmail.com</p>
+    <p>Instagram: @luminamedia</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Lumina Media. Built with clarity. Driven by creativity.</p>
+  </footer>
+</body>
+
+</html>
