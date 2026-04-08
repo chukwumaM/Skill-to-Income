@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blaze Exchange × Muje Spark — 30-Day Conversion Content Playbook</title>
+  <style>
+    :root {
+      --blaze-orange: #ff6a00;
+      --blaze-deep-orange: #ff3b1f;
+      --blaze-gold: #ffb300;
+      --ink: #1b1b1b;
+      --muted: #555;
+      --card: #ffffff;
+      --surface: #fff7f1;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fffaf6 0%, #fff3ea 100%);
+      line-height: 1.5;
+    }
+
+    .page {
+      position: relative;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 32px 22px 72px;
+      overflow: hidden;
+    }
+
+    .watermark {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.06;
+      transform: rotate(-18deg);
+    }
+
+    .wm-logo {
+      width: min(72vw, 980px);
+      filter: saturate(120%);
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--blaze-gold) 0%, var(--blaze-orange) 46%, var(--blaze-deep-orange) 100%);
+      border-radius: 20px;
+      color: #fff;
+      padding: 28px;
+      box-shadow: 0 20px 44px rgba(255, 106, 0, 0.23);
+      margin-bottom: 24px;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-chip {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 12px 0 8px;
+      font-size: clamp(1.5rem, 3.1vw, 2.4rem);
+      line-height: 1.15;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: rgba(255,255,255,0.95);
+      font-size: 1rem;
+    }
+
+    .objective {
+      margin-top: 18px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.36);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .objective h2 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      color: #fff;
+    }
+
+    .flex {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      background: #fff;
+      color: var(--blaze-deep-orange);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.6);
+    }
+
+    .section-title {
+      margin: 22px 0 12px;
+      font-size: 1.35rem;
+      color: #202020;
+    }
+
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .brand-card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid #ffe2cf;
+      box-shadow: 0 8px 20px rgba(255, 106, 0, 0.08);
+    }
+
+    .week {
+      margin-top: 20px;
+      padding: 18px;
+      background: #fff;
+      border: 1px solid #ffe3d3;
+      border-radius: 16px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+    }
+
+    .week h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      color: #202020;
+    }
+
+    .video {
+      margin-top: 12px;
+      background: var(--surface);
+      border-left: 4px solid var(--blaze-orange);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .video h4 {
+      margin: 0 0 8px;
+      font-size: 1.04rem;
+      color: #222;
+    }
+
+    .label {
+      font-weight: 700;
+      color: var(--blaze-deep-orange);
+      margin-right: 6px;
+    }
+
+    ul { margin: 8px 0 0 20px; }
+    li { margin-bottom: 6px; }
+
+    .cta-box {
+      margin-top: 8px;
+      padding: 10px 12px;
+      background: #fff;
+      border-radius: 10px;
+      border: 1px dashed #ffb48a;
+      font-weight: 700;
+      color: #1f1f1f;
+    }
+
+    .winner {
+      margin-top: 20px;
+      background: linear-gradient(135deg, #fff8f1 0%, #fff2e7 100%);
+      border: 1px solid #ffd7be;
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .small { color: var(--muted); font-size: 0.94rem; }
+
+    @media print {
+      .page { max-width: 100%; padding: 16px; }
+      .watermark { opacity: 0.08; }
+      .week, .hero, .winner { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="watermark" aria-hidden="true">
+    <svg class="wm-logo" viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#ffb300"/>
+          <stop offset="55%" stop-color="#ff6a00"/>
+          <stop offset="100%" stop-color="#ff3b1f"/>
+        </linearGradient>
+      </defs>
+      <g fill="none" stroke="url(#g)" stroke-width="18">
+        <circle cx="160" cy="160" r="96"/>
+        <circle cx="160" cy="160" r="128"/>
+      </g>
+      <text x="122" y="190" fill="url(#g)" font-size="130" font-weight="800" font-family="Arial, sans-serif">₿</text>
+      <text x="320" y="190" fill="url(#g)" font-size="132" font-weight="900" font-family="Arial, sans-serif" letter-spacing="3">BLAZE</text>
+      <text x="324" y="266" fill="url(#g)" font-size="76" font-weight="800" font-family="Arial, sans-serif" letter-spacing="11">EXCHANGE</text>
+    </svg>
+  </div>
+
+  <main class="page">
+    <div class="content">
+      <section class="hero">
+        <div class="hero-top">
+          <span class="brand-chip">Blaze Exchange × Muje Spark</span>
+          <span class="brand-chip">Campaign Code: MUJE0321</span>
+        </div>
+        <h1>30-Day Conversion Content Playbook</h1>
+        <p class="subtitle">A trust-first content plan designed to drive completed trades, repeat usage, and long-term brand confidence.</p>
+        <div class="objective">
+          <h2>Main Objective</h2>
+          <div class="flex">
+            <span class="pill">Action → Trade → Repeat Use → Trust Loop</span>
+            <span class="pill">Primary KPI: Real Completed Trades</span>
+            <span class="pill">Not Just Signups / Clicks / Comments</span>
+          </div>
+        </div>
+      </section>
+
+      <h2 class="section-title">Core Brand Message</h2>
+      <div class="brand-grid">
+        <article class="brand-card"><strong>Fast</strong><br /><span class="small">Quick processing and response across transactions.</span></article>
+        <article class="brand-card"><strong>Reliable</strong><br /><span class="small">Consistent outcomes with minimal friction.</span></article>
+        <article class="brand-card"><strong>Smooth</strong><br /><span class="small">Clean, easy process from request to payout.</span></article>
+        <article class="brand-card"><strong>Trusted by Thousands</strong><br /><span class="small">Strong social proof and active user confidence.</span></article>
+        <article class="brand-card"><strong>Great Rates</strong><br /><span class="small">Competitive value for digital fund conversion.</span></article>
+        <article class="brand-card"><strong>Zero Payout Stress</strong><br /><span class="small">Clear communication and dependable delivery.</span></article>
+      </div>
+
+      <section class="week">
+        <h3>Week 1 — Trust + Brand Positioning</h3>
+
+        <div class="video">
+          <h4>🎬 Video 1 — “This is where my people should trade”</h4>
+          <p><span class="label">Goal:</span>Launch Blaze as the trusted exchange choice.</p>
+          <p><span class="label">Shoot Direction:</span>Phone camera, studio or car setup, strong confidence.</p>
+          <p><span class="label">Hook:</span>“If you still stress over where to trade your digital funds safely, this is for you.”</p>
+          <p><span class="label">Script:</span>“My people, I’m officially locked in with Blaze Exchange this month because I’ve seen how smooth their process is. Fast response, clean payouts, solid rates, and most importantly, people actually trust them. Thousands of successful trades, zero unnecessary stories, and a support system that moves fast. If you’re handling PayPal balances, creator earnings, gift values, crypto assets, Cash App, or Zelle balances, Blaze is where I want my people trading.”</p>
+          <div class="cta-box">CTA: Use my code <strong>MUJE0321</strong> and trade with Blaze today.</div>
+          <ul>
+            <li>Why it works: trust</li>
+            <li>Why it works: authority</li>
+            <li>Why it works: artist endorsement + brand positioning</li>
+          </ul>
+        </div>
+
+        <div class="video">
+          <h4>🎬 Video 2 — Social Proof Montage</h4>
+          <p><span class="label">Goal:</span>Show that real people already use Blaze.</p>
+          <p><span class="label">Shoot Direction:</span>Fast montage: dashboard, payout screenshots, blurred successful chats, support replies, Muje nodding, phone closeups.</p>
+          <p><span class="label">Voiceover:</span>“The reason I trust Blaze is simple: people are trading every day with no payout issues. Smooth process, fast response, and solid rates. This is the kind of platform I can confidently recommend.”</p>
+          <div class="cta-box">CTA: Trade with Blaze using <strong>MUJE0321</strong>.</div>
+        </div>
+      </section>
+
+      <section class="week">
+        <h3>Week 2 — Education + TikTok Funds Script (High Priority)</h3>
+        <div class="video">
+          <h4>🎬 Video — “TikTok Coins vs TikTok Funds”</h4>
+          <p><span class="label">Goal:</span>Educate creators and remove confusion.</p>
+          <p><span class="label">Shoot Direction:</span>Talking-head, clear educational tone, text overlays.</p>
+          <p><span class="label">Hook:</span>“A lot of people keep mixing up TikTok coins with TikTok creator funds. They are not the same.”</p>
+          <p><span class="label">Full Script:</span>“Let me clear this up because a lot of people keep getting this wrong. What Blaze Exchange handles is TikTok creator funds, not TikTok coins. TikTok coins are what viewers use for gifts during live streams. But creator funds are the earnings that hit your payout balance after your content or lives perform. For Blaze to help you process it smoothly, your creator balance should be converted into USDT equivalent value, and from there the exchange process becomes clean, fast, and easy. This is exactly why I trust Blaze, because they understand the proper process and there’s no confusion. So if you’re a creator sitting on your TikTok earnings, use MUJE0321 and move it through Blaze today.”</p>
+          <div class="cta-box">CTA: Trade your TikTok creator funds with Blaze now.</div>
+          <ul>
+            <li>Why this converts: creator pain point</li>
+            <li>Why this converts: education removes confusion</li>
+            <li>Why this converts: positions Blaze as experts and builds creator trust</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="week">
+        <h3>Week 3 — Service Stack + Conversion Push</h3>
+        <div class="video">
+          <h4>🎬 Video — “Everything Blaze helps you handle”</h4>
+          <p><span class="label">Goal:</span>Expand wallet share.</p>
+          <p><span class="label">Shoot Direction:</span>Split-screen style.</p>
+          <p><span class="label">Script:</span>“A lot of you know Blaze for creator funds, but it goes way beyond that. They help with PayPal balances, TikTok creator funds, Cash App balances, Zelle balances, crypto assets, gift card values, and other digital funds. One trusted platform, smooth process, strong rates, and fast support.”</p>
+          <div class="cta-box">CTA: Whatever digital asset you need to move, Blaze is ready.</div>
+          <ul>
+            <li>Why this works: increases use cases</li>
+            <li>Why this works: cross-sells multiple services</li>
+            <li>Why this works: boosts repeat users</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="week">
+        <h3>Week 4 — Urgency + Last Push</h3>
+        <div class="video">
+          <h4>🎬 Video — “Don’t wait till you need urgent payout”</h4>
+          <p><span class="label">Goal:</span>Create urgency.</p>
+          <p><span class="label">Hook:</span>“The worst time to find a trusted platform is when you need urgent payout.”</p>
+          <p><span class="label">Script:</span>“The smart move is knowing where to trade before the pressure comes. Blaze has already built that trust with thousands of successful trades. Fast response, clean communication, reliable rates, and smooth processing. Use MUJE0321 and let Blaze handle it.”</p>
+          <div class="cta-box">CTA: Don’t wait for urgent pressure. Start trading smart.</div>
+        </div>
+      </section>
+
+      <section class="week">
+        <h3>Bonus Story Strategy (Daily Rotation)</h3>
+        <ul>
+          <li>Successful payout proofs</li>
+          <li>Creator funds tips</li>
+          <li>TikTok funds myth correction</li>
+          <li>“Today’s smooth trades” updates</li>
+          <li>Muje studio clips + direct CTA</li>
+          <li>Link in bio reminder</li>
+        </ul>
+        <p class="small">This keeps daily conversion pressure active and reinforces consistent trust signals.</p>
+      </section>
+
+      <section class="winner">
+        <h3 style="margin-top:0;">Key Strategic Winners (Highest Conversion Potential)</h3>
+        <ol>
+          <li><strong>TikTok creator funds education</strong> — massive creator trust play.</li>
+          <li><strong>Social proof montage</strong> — strongest community validation asset.</li>
+          <li><strong>Service stack video</strong> — expands transaction volume and repeat usage.</li>
+        </ol>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
