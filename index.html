@@ -1,305 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Basic page setup for GitHub Pages and mobile devices -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blaze Exchange × Artist Collaboration Proposal</title>
-  <style>
-    :root {
-      --bg: #06070b;
-      --card: rgba(20, 24, 36, 0.92);
-      --card-soft: rgba(34, 40, 58, 0.85);
-      --text: #f8f9ff;
-      --muted: #c9cde1;
-      --accent: #8d5bff;
-      --accent-2: #25d5ff;
-      --success: #34d399;
-      --warning: #f59e0b;
-      --border: rgba(141, 91, 255, 0.4);
-      --shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
-    }
+  <meta name="description" content="Decipher Academy link-in-bio landing page for students, parents, communities, and academy resources." />
+  <title>Decipher Academy | Learning Links</title>
 
-    * { box-sizing: border-box; }
+  <!-- Google Font: Inter keeps the design clean, modern, and educational -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-    body {
-      margin: 0;
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(37, 213, 255, 0.2), transparent 35%),
-        radial-gradient(circle at 95% 10%, rgba(141, 91, 255, 0.22), transparent 30%),
-        linear-gradient(135deg, #06070b, #111423 45%, #0d1020);
-      color: var(--text);
-      min-height: 100vh;
-      padding: 1.2rem;
-      display: grid;
-      place-items: center;
-    }
+  <!-- Font Awesome icons for link cards and social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    .slide {
-      width: min(1500px, 100%);
-      aspect-ratio: 16 / 9;
-      background: linear-gradient(145deg, rgba(11, 14, 26, 0.95), rgba(16, 19, 33, 0.98));
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      padding: clamp(16px, 2.2vw, 32px);
-      display: grid;
-      grid-template-rows: auto auto 1fr;
-      gap: 14px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .slide::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 38px 38px;
-      pointer-events: none;
-      opacity: 0.45;
-    }
-
-    .headline, .subhead, .grid { position: relative; z-index: 1; }
-
-    .kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      font-size: clamp(.72rem, .9vw, .9rem);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--accent-2);
-      background: rgba(37, 213, 255, 0.1);
-      padding: .4rem .7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(37, 213, 255, 0.4);
-      margin-bottom: .55rem;
-      font-weight: 600;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(1.2rem, 2.2vw, 2.3rem);
-      line-height: 1.25;
-      font-weight: 800;
-      max-width: 75ch;
-    }
-
-    .subhead {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .6rem;
-    }
-
-    .pill {
-      font-size: clamp(.66rem, .8vw, .9rem);
-      padding: .38rem .68rem;
-      border-radius: 999px;
-      background: rgba(141, 91, 255, .14);
-      border: 1px solid rgba(141, 91, 255, .4);
-      color: #e8ddff;
-      white-space: nowrap;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr;
-      gap: 12px;
-      min-height: 0;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(201, 205, 225, 0.14);
-      border-radius: 16px;
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      min-height: 0;
-    }
-
-    .card h2, .card h3 {
-      margin: 0 0 .45rem;
-      font-size: clamp(.8rem, 1vw, 1rem);
-      letter-spacing: .03em;
-      text-transform: uppercase;
-      color: var(--accent-2);
-    }
-
-    .big {
-      font-size: clamp(1rem, 1.4vw, 1.2rem);
-      font-weight: 700;
-      margin: .1rem 0 .45rem;
-      color: white;
-    }
-
-    ul {
-      margin: .2rem 0 0;
-      padding-left: 1rem;
-      color: var(--muted);
-      font-size: clamp(.67rem, .79vw, .87rem);
-      line-height: 1.35;
-    }
-
-    .split {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      gap: 12px;
-      min-height: 0;
-    }
-
-    .card strong { color: #fff; }
-
-    .hook {
-      background: linear-gradient(145deg, rgba(141, 91, 255, .26), rgba(37, 213, 255, .16));
-      border: 1px solid rgba(141, 91, 255, .6);
-    }
-
-    .quote {
-      background: var(--card-soft);
-      border-left: 4px solid var(--success);
-      padding: .7rem .85rem;
-      border-radius: 12px;
-      margin-top: .55rem;
-      font-size: clamp(.7rem, .84vw, .94rem);
-      color: #ebfff7;
-      line-height: 1.35;
-    }
-
-    .kpis {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-top: .45rem;
-      font-size: clamp(.67rem, .78vw, .88rem);
-      color: var(--muted);
-    }
-
-    .kpi-box {
-      background: rgba(255, 255, 255, 0.04);
-      border-radius: 10px;
-      padding: .5rem;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .kpi-box span { display:block; color: #fff; font-weight:700; margin-top: 2px; }
-
-    .timeline {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 6px;
-      margin-top: .35rem;
-    }
-
-    .week {
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 10px;
-      padding: .45rem;
-      font-size: clamp(.63rem, .73vw, .8rem);
-      color: var(--muted);
-      line-height: 1.3;
-    }
-
-    .week b { color: #fff; display: block; margin-bottom: 2px; }
-
-    .footer-note {
-      margin-top: auto;
-      font-size: clamp(.63rem, .72vw, .8rem);
-      color: #f0e7ff;
-      background: rgba(141, 91, 255, .12);
-      border: 1px solid rgba(141, 91, 255, .3);
-      border-radius: 10px;
-      padding: .5rem .6rem;
-    }
-
-    @media (max-width: 1100px) {
-      .slide { aspect-ratio: auto; }
-      .grid { grid-template-columns: 1fr; }
-      .split { grid-template-rows: auto; }
-      .timeline { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
+  <!-- Main stylesheet: no frameworks or build tools required -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="slide" aria-label="BLAZE EXCHANGE × ARTIST 30-DAY COLLABORATION PROPOSAL">
-    <section class="headline">
-      <span class="kicker">Blaze Fan Spotlight Challenge · 30-Day Campaign</span>
-      <h1>BLAZE EXCHANGE × ARTIST 30-DAY COLLABORATION PROPOSAL</h1>
-    </section>
+  <!-- Decorative blurred shapes create the futuristic sky-blue background feel -->
+  <div class="background-shape shape-one" aria-hidden="true"></div>
+  <div class="background-shape shape-two" aria-hidden="true"></div>
+  <div class="background-shape shape-three" aria-hidden="true"></div>
 
-    <section class="subhead" aria-label="campaign highlights">
-      <span class="pill">Referral Code: <strong>MUJE0321</strong></span>
-      <span class="pill">Theme: Trusted • Fast • Youth-Driven • Culture-Led</span>
-      <span class="pill">Core Outcome: Signups → First Trades → Repeat Trades</span>
-      <span class="pill">Main Incentive: Fan Wall Spotlight + Social Clout</span>
-    </section>
+  <!-- Large logo watermark inspired by the supplied Decipher Academy logo -->
+  <div class="logo-watermark" aria-hidden="true">
+    <span>DA</span>
+  </div>
 
-    <section class="grid">
-      <article class="card hook">
-        <h2>The Big Community Hook</h2>
-        <p class="big">Official Fan Wall Spotlight (Main Incentive)</p>
-        <ul>
-          <li>Anyone who trades with <strong>MUJE0321</strong> qualifies for spotlight selection.</li>
-          <li>Top users are featured weekly on the artist’s story + Blaze page.</li>
-          <li>Winners are highlighted as <strong>Top Blaze Fan Traders</strong> and called out on livestreams.</li>
-          <li>At month end, Top 10 supporters enter the <strong>Hall of Fame Spotlight</strong>.</li>
-        </ul>
-        <div class="quote">“Trade on Blaze with <strong>MUJE0321</strong> and get featured on my official Fan Wall Spotlight.”</div>
-        <div class="footer-note">Emotional reward = public recognition + artist reposts + visible fan status.</div>
-      </article>
-
-      <div class="split">
-        <article class="card">
-          <h3>Artist Deliverables (30 Days)</h3>
-          <ul>
-            <li><strong>8</strong> TikToks + <strong>8</strong> Instagram reels</li>
-            <li><strong>20+</strong> stories + daily WhatsApp status reminders</li>
-            <li><strong>4</strong> livestreams + <strong>4</strong> Fan Wall reposts</li>
-            <li><strong>4</strong> X/Twitter posts</li>
-            <li>Weekly cadence: 2 TikToks, 2 Reels, 3–5 stories, 1 livestream</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Blaze Support Required</h3>
-          <ul>
-            <li><strong>Assets:</strong> logo pack, templates, proof visuals, livestream backdrop, merch</li>
-            <li><strong>Tracking:</strong> MUJE0321 dashboard, weekly signup/trade reports, leaderboard</li>
-            <li><strong>Team:</strong> campaign manager, WhatsApp response line, live session support</li>
-            <li><strong>Ops:</strong> daily rate updates for creator content</li>
-          </ul>
-        </article>
+  <main class="page-shell">
+    <!-- HERO SECTION -->
+    <section class="hero section-card reveal" aria-labelledby="hero-title">
+      <!-- Circular logo placeholder at the top; replace text/image later if needed -->
+      <div class="logo-badge" aria-label="Decipher Academy logo placeholder">
+        <span class="logo-mark">DA</span>
+        <span class="logo-name">Decipher Academy</span>
       </div>
 
-      <div class="split">
-        <article class="card">
-          <h3>30-Day Content Flow</h3>
-          <div class="timeline">
-            <div class="week"><b>Week 1</b>Launch, code intro, Fan Wall education, CTA push.</div>
-            <div class="week"><b>Week 2</b>Proof content, first winners, repost loop, live Q&amp;A.</div>
-            <div class="week"><b>Week 3</b>Streamer expansion: TikTok live, gaming, campus, crypto hosts.</div>
-            <div class="week"><b>Week 4</b>Final challenge, biggest stream, Hall of Fame reveal.</div>
-          </div>
-        </article>
+      <p class="eyebrow"><i class="fa-solid fa-graduation-cap"></i> Smart learning starts here</p>
+      <h1 id="hero-title">Decipher Academy</h1>
+      <p class="tagline">Making education easier, smarter, and more accessible.</p>
+      <p class="intro-text">
+        Students and parents can access important dashboards, portals, communities,
+        registration pages, and academy resources from one clean place.
+      </p>
+    </section>
 
-        <article class="card">
-          <h3>Success KPIs & Target</h3>
-          <div class="kpis">
-            <div class="kpi-box">Signups via code<span>300–500</span></div>
-            <div class="kpi-box">Completed trades<span>100–150</span></div>
-            <div class="kpi-box">Repeat trades<span>Weekly growth</span></div>
-            <div class="kpi-box">Community proof<span>High repost reach</span></div>
-          </div>
-          <ul>
-            <li>Track livestream views, story engagement, fan wall submissions, creator-collab traffic, and WhatsApp leads weekly.</li>
-            <li>Build long-term trust assets through reusable youth-facing social proof.</li>
-          </ul>
-        </article>
+    <!-- PRIMARY LINKS SECTION -->
+    <section class="link-section reveal" aria-labelledby="primary-links-title">
+      <div class="section-heading">
+        <p class="section-kicker">Main Resources</p>
+        <h2 id="primary-links-title">Primary Links</h2>
+      </div>
+
+      <div class="links-grid">
+        <!-- PLACE URL HERE -->
+        <a class="link-card" href="PASTE_STUDENT_DASHBOARD_LINK_HERE" target="_blank" rel="noopener noreferrer">
+          <span class="icon-circle"><i class="fa-solid fa-chart-line"></i></span>
+          <span class="link-content">
+            <strong>Student Dashboard</strong>
+            <small>Open learning progress and key student tools.</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+        </a>
+
+        <!-- PLACE URL HERE -->
+        <a class="link-card" href="PASTE_STUDENT_MAIN_PORTAL_LINK_HERE" target="_blank" rel="noopener noreferrer">
+          <span class="icon-circle"><i class="fa-solid fa-door-open"></i></span>
+          <span class="link-content">
+            <strong>Student Main Portal</strong>
+            <small>Access the main learning environment.</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+        </a>
+
+        <!-- PLACE URL HERE -->
+        <a class="link-card" href="PASTE_STUDENT_SUBJECTS_LINK_HERE" target="_blank" rel="noopener noreferrer">
+          <span class="icon-circle"><i class="fa-solid fa-book-open-reader"></i></span>
+          <span class="link-content">
+            <strong>Student Subjects</strong>
+            <small>Browse lessons, subjects, and study materials.</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+        </a>
+
+        <!-- PLACE URL HERE -->
+        <a class="link-card" href="PASTE_PARENT_SIGN_UP_LINK_HERE" target="_blank" rel="noopener noreferrer">
+          <span class="icon-circle"><i class="fa-solid fa-user-group"></i></span>
+          <span class="link-content">
+            <strong>Parent Sign-Up</strong>
+            <small>Register as a parent or guardian.</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+        </a>
+
+        <!-- PLACE URL HERE -->
+        <a class="link-card" href="PASTE_STUDENT_REGISTRATION_LINK_HERE" target="_blank" rel="noopener noreferrer">
+          <span class="icon-circle"><i class="fa-solid fa-user-plus"></i></span>
+          <span class="link-content">
+            <strong>Student Registration</strong>
+            <small>Enroll a student in Decipher Academy.</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+        </a>
+
+        <!-- PLACE URL HERE -->
+        <a class="link-card" href="PASTE_CONTACT_SUPPORT_LINK_HERE" target="_blank" rel="noopener noreferrer">
+          <span class="icon-circle"><i class="fa-solid fa-headset"></i></span>
+          <span class="link-content">
+            <strong>Contact Support</strong>
+            <small>Get help with accounts, classes, or access.</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- COMMUNITY LINKS SECTION -->
+    <section class="link-section reveal" aria-labelledby="community-links-title">
+      <div class="section-heading">
+        <p class="section-kicker">Learning Communities</p>
+        <h2 id="community-links-title">Community Links</h2>
+      </div>
+
+      <div class="links-grid two-column">
+        <!-- PLACE URL HERE -->
+        <a class="link-card highlight-card" href="PASTE_PARENT_WHATSAPP_COMMUNITY_LINK_HERE" target="_blank" rel="noopener noreferrer">
+          <span class="icon-circle"><i class="fa-brands fa-whatsapp"></i></span>
+          <span class="link-content">
+            <strong>Join Parent WhatsApp Community</strong>
+            <small>Stay updated with parent announcements and learning support.</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+        </a>
+
+        <!-- PLACE URL HERE -->
+        <a class="link-card highlight-card" href="PASTE_DIGITAL_SKILLS_COMMUNITY_LINK_HERE" target="_blank" rel="noopener noreferrer">
+          <span class="icon-circle"><i class="fa-solid fa-laptop-code"></i></span>
+          <span class="link-content">
+            <strong>Join Digital Skills Community</strong>
+            <small>Connect around technology, creativity, and future-ready skills.</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- ACADEMY LINKS SECTION -->
+    <section class="link-section reveal" aria-labelledby="academy-links-title">
+      <div class="section-heading">
+        <p class="section-kicker">Explore More</p>
+        <h2 id="academy-links-title">Academy Links</h2>
+      </div>
+
+      <div class="links-grid">
+        <!-- PLACE URL HERE -->
+        <a class="link-card" href="PASTE_STEM_PROGRAMS_LINK_HERE" target="_blank" rel="noopener noreferrer">
+          <span class="icon-circle"><i class="fa-solid fa-atom"></i></span>
+          <span class="link-content">
+            <strong>STEM Programs</strong>
+            <small>Discover science, technology, engineering, and math programs.</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+        </a>
+
+        <!-- PLACE URL HERE -->
+        <a class="link-card" href="PASTE_ACADEMY_LANDING_PAGE_LINK_HERE" target="_blank" rel="noopener noreferrer">
+          <span class="icon-circle"><i class="fa-solid fa-globe"></i></span>
+          <span class="link-content">
+            <strong>Academy Landing Page</strong>
+            <small>Visit the main Decipher Academy web page.</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+        </a>
+
+        <!-- PLACE URL HERE -->
+        <a class="link-card" href="PASTE_TIKTOK_PAGE_LINK_HERE" target="_blank" rel="noopener noreferrer">
+          <span class="icon-circle"><i class="fa-brands fa-tiktok"></i></span>
+          <span class="link-content">
+            <strong>TikTok Page</strong>
+            <small>Watch short videos, updates, and learning highlights.</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+        </a>
+
+        <!-- PLACE URL HERE -->
+        <a class="link-card" href="PASTE_INSTAGRAM_PAGE_LINK_HERE" target="_blank" rel="noopener noreferrer">
+          <span class="icon-circle"><i class="fa-brands fa-instagram"></i></span>
+          <span class="link-content">
+            <strong>Instagram Page</strong>
+            <small>Follow academy stories, programs, and announcements.</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- WE ARE CONNECTED SECTION -->
+    <section class="connected section-card reveal" aria-labelledby="connected-title">
+      <p class="section-kicker">We Are Connected</p>
+      <h2 id="connected-title">Stay connected with Decipher Academy</h2>
+      <p>
+        Stay connected with Decipher Academy across all our learning communities and platforms.
+      </p>
+
+      <!-- Social icons are visual shortcuts; replace href values when ready -->
+      <div class="social-icons" aria-label="Decipher Academy social links">
+        <!-- PLACE URL HERE -->
+        <a href="PASTE_WHATSAPP_LINK_HERE" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <!-- PLACE URL HERE -->
+        <a href="PASTE_TIKTOK_LINK_HERE" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <!-- PLACE URL HERE -->
+        <a href="PASTE_INSTAGRAM_LINK_HERE" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <!-- PLACE URL HERE -->
+        <a href="PASTE_EMAIL_OR_SUPPORT_LINK_HERE" target="_blank" rel="noopener noreferrer" aria-label="Support"><i class="fa-solid fa-envelope"></i></a>
       </div>
     </section>
   </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>© Decipher Academy — Elevating Education Through Innovation</p>
+  </footer>
+
+  <!-- Main JavaScript file: no build tools, no frameworks -->
+  <script src="script.js"></script>
 </body>
 </html>
